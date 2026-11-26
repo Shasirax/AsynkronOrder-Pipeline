@@ -62,7 +62,12 @@ const processOrder = async () => {
 	const stock = await checkStock();
 	const pay = await processPayment(499);
 	Promise.all([user, stock, pay]).then((x) => {
-		console.log(x);
+		try {
+			console.log(x);
+		} catch (error) {
+			console.error(error);
+		} 
 	}); 
 }
+
 processOrder();
